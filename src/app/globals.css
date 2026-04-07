@@ -72,3 +72,24 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.metallic-gold {
+  background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.metallic-silver {
+  background: linear-gradient(135deg, #70706f, #e8e8e8, #8e8e8e, #fcfcfc, #70706f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-card {
+  backdrop-filter: blur(20px);
+  background: rgba(24, 25, 32, 0.6);
+}
+
+.glass-panel {
+  backdrop-filter: blur(20px);
+}

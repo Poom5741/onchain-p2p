@@ -1,243 +1,357 @@
 import Image from "next/image";
-import { CircleDollarSign, Coins, ShieldCheck, Globe, ArrowRight, Sparkles, Droplets } from "lucide-react";
+import { Search, Bell, Settings, ChevronDown, SlidersHorizontal, CreditCard, Star, ShieldCheck, Zap, ArrowDownUp, Shield, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <>
+    <div className="min-h-screen bg-background text-on-surface">
       {/* TopNavBar */}
-      <nav className="fixed top-0 w-full z-50 bg-transparent backdrop-blur-xl">
-        <div className="flex justify-between items-center max-w-7xl mx-auto px-8 py-6">
-          <div className="text-2xl font-black bg-gradient-to-r from-primary to-primary-dim bg-clip-text text-transparent font-headline tracking-tight">
-            Aureum
+      <nav className="fixed top-0 w-full z-50 bg-[#0d0e13]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(197,154,255,0.08)] flex justify-between items-center px-8 h-20">
+        <div className="flex items-center gap-8">
+          <span className="text-2xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#c59aff] to-[#9547f7] font-headline">Aureum</span>
+          <div className="hidden md:flex items-center gap-6 font-headline font-bold text-sm tracking-tight">
+            <Link className="text-[#c59aff] border-b-2 border-[#c59aff] pb-1" href="/">Marketplace</Link>
+            <Link className="text-[#f7f5fd]/60 hover:text-[#f7f5fd] transition-colors" href="/trade/buyer">Trades</Link>
+            <a className="text-[#f7f5fd]/60 hover:text-[#f7f5fd] transition-colors" href="#">Wallet</a>
+            <a className="text-[#f7f5fd]/60 hover:text-[#f7f5fd] transition-colors" href="#">Help</a>
           </div>
-          <div className="hidden md:flex items-center gap-10">
-            <a className="text-primary border-b-2 border-primary pb-1 font-headline font-bold tracking-tight transition-colors duration-300" href="#">Marketplace</a>
-            <a className="text-on-surface opacity-80 hover:text-primary transition-colors duration-300 font-headline font-bold tracking-tight" href="#">Trades</a>
-            <a className="text-on-surface opacity-80 hover:text-primary transition-colors duration-300 font-headline font-bold tracking-tight" href="#">Wallet</a>
-            <a className="text-on-surface opacity-80 hover:text-primary transition-colors duration-300 font-headline font-bold tracking-tight" href="#">Help</a>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="hidden lg:flex bg-surface-container-high rounded-full px-4 py-2 items-center gap-2">
+            <Search className="text-on-surface-variant w-4 h-4" />
+            <input className="bg-transparent border-none focus:ring-0 text-sm w-48 text-on-surface outline-none" placeholder="Search markets..." type="text" />
           </div>
-          <div className="flex items-center gap-4">
-            <button className="hidden lg:block text-on-surface font-bold py-2 px-4 hover:text-primary transition-all">Merchant Portal</button>
-            <button className="bg-gradient-to-r from-primary to-primary-dim text-on-primary-container font-bold py-3 px-8 rounded-full scale-95 active:opacity-80 transition-all">Start Trading</button>
-          </div>
+          <button className="p-2 text-on-surface-variant hover:bg-[#181920] rounded-full transition-all active:scale-95">
+            <Bell className="w-5 h-5" />
+          </button>
+          <button className="p-2 text-on-surface-variant hover:bg-[#181920] rounded-full transition-all active:scale-95">
+            <Settings className="w-5 h-5" />
+          </button>
+          <button className="bg-gradient-to-r from-[#c59aff] to-[#9547f7] text-on-primary-container px-6 py-2.5 rounded-full font-headline font-bold text-sm hover:opacity-90 transition-all active:scale-95">
+            Connect Wallet
+          </button>
         </div>
       </nav>
 
-      <main>
+      {/* SideNavBar (Desktop) */}
+      <aside className="hidden lg:flex h-screen w-64 fixed left-0 top-0 pt-24 bg-[#121319] flex-col border-r border-[#f7f5fd]/5 z-40">
+        <div className="flex items-center gap-3 px-6 mb-10">
+          <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center">
+            <Sparkles className="text-primary w-5 h-5" />
+          </div>
+          <div>
+            <p className="text-lg font-bold text-[#c59aff] font-headline">Aureum P2P</p>
+            <p className="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">The Neon Alchemist</p>
+          </div>
+        </div>
+        <nav className="flex flex-col flex-1 font-body font-medium text-sm">
+          <a className="flex items-center gap-3 text-[#f7f5fd]/50 py-3 px-6 hover:bg-[#181920] hover:text-[#00f2ea] transition-all duration-300 ease-in-out" href="/trade/merchant">
+            <Settings className="w-5 h-5" />
+            <span>Merchant Dashboard</span>
+          </a>
+          <a className="flex items-center gap-3 text-[#f7f5fd]/50 py-3 px-6 hover:bg-[#181920] hover:text-[#00f2ea] transition-all duration-300 ease-in-out" href="/trade/buyer">
+            <Search className="w-5 h-5" />
+            <span>Buyer Portal</span>
+          </a>
+          <a className="flex items-center gap-3 bg-[#c59aff]/10 text-[#c59aff] rounded-r-full py-3 px-6 border-l-4 border-[#c59aff] transition-all duration-300 ease-in-out" href="#">
+            <Settings className="w-5 h-5" />
+            <span>Asset Inventory</span>
+          </a>
+          <a className="flex items-center gap-3 text-[#f7f5fd]/50 py-3 px-6 hover:bg-[#181920] hover:text-[#00f2ea] transition-all duration-300 ease-in-out" href="#">
+            <Settings className="w-5 h-5" />
+            <span>Trade History</span>
+          </a>
+          <div className="mt-8 px-6">
+            <button className="w-full py-3 bg-secondary/10 text-secondary border border-secondary/20 rounded-xl font-bold font-headline flex items-center justify-center gap-2 hover:bg-secondary/20 transition-all">
+              <span className="text-lg">+</span>
+              New Trade
+            </button>
+          </div>
+          <div className="mt-auto pb-8 space-y-1">
+            <a className="flex items-center gap-3 text-[#f7f5fd]/50 py-3 px-6 hover:bg-[#181920] transition-all" href="#">
+              <Settings className="w-5 h-5" />
+              <span>Support</span>
+            </a>
+            <a className="flex items-center gap-3 text-[#f7f5fd]/50 py-3 px-6 hover:bg-[#181920] transition-all" href="#">
+              <Settings className="w-5 h-5" />
+              <span>Sign Out</span>
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <main className="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto lg:pl-72">
         {/* Hero Section */}
-        <section className="relative pt-40 pb-32 px-8 overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120%] h-full opacity-20 pointer-events-none">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/30 via-transparent to-transparent blur-3xl"></div>
-          </div>
-          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16 relative z-10">
-            <div className="flex-1 text-center lg:text-left">
-              <h1 className="font-headline text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight mb-8">
-                The Future of <span className="text-gradient">Synthetic</span> Peer-to-Peer Trading
+        <section className="mb-16">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-8">
+            <div className="max-w-2xl">
+              <h1 className="text-5xl md:text-7xl font-headline font-extrabold tracking-tighter mb-6 leading-[1.1]">
+                Alchemy of <br/>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary">Synthetic Markets</span>
               </h1>
-              <p className="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto lg:mx-0 mb-12">
-                Exchange synthetic gold, silver, and fiat currencies directly with verified merchants. Secure, fast, and no middlemen.
+              <p className="text-on-surface-variant text-lg leading-relaxed font-medium">
+                Secure, peer-to-peer synthetic asset exchange. Trade tokenized precious metals and global currencies with instant settlement.
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
-                <button className="bg-gradient-to-r from-primary to-primary-dim text-on-primary-container font-bold text-lg px-10 py-5 rounded-full aureum-glow transition-all hover:scale-105 active:scale-95">
-                  Start Trading
+            </div>
+            <div className="flex gap-4">
+              <div className="bg-surface-container-low p-6 rounded-xl border-l-4 border-secondary flex flex-col gap-1">
+                <span className="text-xs font-bold font-headline text-secondary tracking-widest uppercase">24H VOLUME</span>
+                <span className="text-2xl font-bold font-headline">$4.2M</span>
+              </div>
+              <div className="bg-surface-container-low p-6 rounded-xl border-l-4 border-primary flex flex-col gap-1">
+                <span className="text-xs font-bold font-headline text-primary tracking-widest uppercase">ACTIVE OFFERS</span>
+                <span className="text-2xl font-bold font-headline">1,842</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Filter Shell */}
+        <div className="bg-surface-container-low rounded-xl p-4 mb-8 flex flex-wrap items-center gap-4">
+          <div className="flex items-center gap-2 bg-surface-container-highest px-4 py-2 rounded-full cursor-pointer hover:bg-surface-bright transition-colors">
+            <span className="text-sm font-bold font-headline">Asset Type</span>
+            <ChevronDown className="w-4 h-4" />
+          </div>
+          <div className="flex items-center gap-2 bg-surface-container-highest px-4 py-2 rounded-full cursor-pointer hover:bg-surface-bright transition-colors">
+            <span className="text-sm font-bold font-headline">Amount Range</span>
+            <SlidersHorizontal className="w-4 h-4" />
+          </div>
+          <div className="flex items-center gap-2 bg-surface-container-highest px-4 py-2 rounded-full cursor-pointer hover:bg-surface-bright transition-colors">
+            <span className="text-sm font-bold font-headline">Payment Method</span>
+            <CreditCard className="w-4 h-4" />
+          </div>
+          <div className="ml-auto flex items-center gap-4">
+            <span className="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Sort By:</span>
+            <div className="flex items-center gap-2 bg-surface-container rounded-full px-4 py-2">
+              <span className="text-sm font-bold">Best Price</span>
+              <ChevronDown className="w-4 h-4" />
+            </div>
+          </div>
+        </div>
+
+        {/* Marketplace Bento Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          {/* Highlighted Merchants / Left Sidebar */}
+          <div className="lg:col-span-3 space-y-6">
+            <h3 className="font-headline font-extrabold text-xl px-2">Top Merchants</h3>
+
+            {/* Merchant Card 1 */}
+            <div className="bg-surface-container p-6 rounded-xl space-y-4 hover:translate-y-[-4px] transition-all duration-300">
+              <div className="flex items-center gap-3">
+                <Image width={48} height={48} alt="Nova_Trade" className="rounded-full bg-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvN2wPHLr4NEGFHPvDFMsyXt5UiOLZDsAJm5PnO9RWfHml2OFtNUgerhd9YSy8dzLDpesAkWNKbKY9lDCjVv9LJIf06q1MzyNM3ImK33LW99hyo5-zlJpCL6znCTgTec2_QMgB0-etttM8RfxrH_XayxSbBXCztbmrP1dBPzh8UwhLzA1yvo5rw4xgs1V-1GGpcCiQRvxzzzlpIkBddLoWhpuNBCBVcSVR553g6JNAC0RX3gZcaI2N5mZp6UzQ1XdKPtfzj9yAVP0" />
+                <div>
+                  <p className="font-bold font-headline">Nova_Trade</p>
+                  <div className="flex items-center gap-1">
+                    <Star className="text-secondary w-3 h-3 fill-secondary" />
+                    <span className="text-xs font-bold text-secondary">99.8%</span>
+                  </div>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-surface-container-low p-3 rounded-lg text-center">
+                  <p className="text-[10px] text-on-surface-variant font-bold uppercase">TRADES</p>
+                  <p className="text-sm font-bold">12,400+</p>
+                </div>
+                <div className="bg-surface-container-low p-3 rounded-lg text-center">
+                  <p className="text-[10px] text-on-surface-variant font-bold uppercase">SPEED</p>
+                  <p className="text-sm font-bold">2m avg</p>
+                </div>
+              </div>
+              <button className="w-full py-2 bg-surface-container-highest rounded-full text-xs font-bold hover:bg-primary/20 hover:text-primary transition-all">View Profile</button>
+            </div>
+
+            {/* Merchant Card 2 */}
+            <div className="bg-surface-container p-6 rounded-xl space-y-4 hover:translate-y-[-4px] transition-all duration-300">
+              <div className="flex items-center gap-3">
+                <Image width={48} height={48} alt="SilverFox_P2P" className="rounded-full bg-secondary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaHVGrlaC99VyNIHzH-PYG0_lmOVa4jznxQ5rsyPcWpKQUA6UoW9Uj_p8mkFMgKqkB7DAIJYl8gxwuT6YQxjA5eHn33w8NZxasjOm6M4ZiyuXhGaGU3bkSVBuhUxf1-kI6hQgcCMQbnO9XKUZdq5xAfsbxOb6wtTsEji3JTl_qu0mVzXCv6eSmsxF4t9fs3WBQMODMQishiPg7FgB0b55ubw6HtdrMFGldL8SrO8sY4hgG-uRwpqtexXEv0BzXN_RzYI8m40i6vZw" />
+                <div>
+                  <p className="font-bold font-headline">SilverFox_P2P</p>
+                  <div className="flex items-center gap-1">
+                    <Star className="text-secondary w-3 h-3 fill-secondary" />
+                    <span className="text-xs font-bold text-secondary">100%</span>
+                  </div>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-surface-container-low p-3 rounded-lg text-center">
+                  <p className="text-[10px] text-on-surface-variant font-bold uppercase">TRADES</p>
+                  <p className="text-sm font-bold">5,201</p>
+                </div>
+                <div className="bg-surface-container-low p-3 rounded-lg text-center">
+                  <p className="text-[10px] text-on-surface-variant font-bold uppercase">SPEED</p>
+                  <p className="text-sm font-bold">5m avg</p>
+                </div>
+              </div>
+              <button className="w-full py-2 bg-surface-container-highest rounded-full text-xs font-bold hover:bg-primary/20 hover:text-primary transition-all">View Profile</button>
+            </div>
+          </div>
+
+          {/* Main Offers List / Right Grid */}
+          <div className="lg:col-span-9 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Offer Card 1: Gold Buy */}
+            <div className="glass-card rounded-xl p-8 flex flex-col border-l-4 border-primary group hover:bg-[#1e1f26] transition-all duration-300">
+              <div className="flex justify-between items-start mb-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#bf953f] to-[#fcf6ba] flex items-center justify-center">
+                    <CreditCard className="text-on-primary-fixed w-8 h-8" />
+                  </div>
+                  <div>
+                    <h4 className="metallic-gold font-headline font-extrabold text-2xl tracking-tighter">sXAU</h4>
+                    <span className="text-xs font-bold text-on-surface-variant">Synthetic Gold</span>
+                  </div>
+                </div>
+                <div className="bg-secondary/10 px-3 py-1 rounded-full">
+                  <span className="text-secondary text-xs font-bold font-headline uppercase tracking-tighter">BEST PRICE</span>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4 mb-8">
+                <div className="flex justify-between items-baseline">
+                  <span className="text-on-surface-variant text-sm font-medium">Price per Oz</span>
+                  <span className="text-2xl font-extrabold font-headline">$2,145.20</span>
+                </div>
+                <div className="flex justify-between items-baseline">
+                  <span className="text-on-surface-variant text-sm font-medium">Limits</span>
+                  <span className="text-sm font-bold">500.00 - 15,000.00 USD</span>
+                </div>
+              </div>
+              <div className="mt-auto pt-6 flex items-center justify-between border-t border-white/5">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="text-secondary w-4 h-4" />
+                  <span className="text-xs font-bold text-on-surface-variant">Instant Settlement</span>
+                </div>
+                <button className="bg-gradient-to-r from-secondary to-secondary-container text-on-secondary px-8 py-3 rounded-full font-headline font-extrabold text-sm group-hover:scale-105 transition-transform">
+                  BUY sXAU
                 </button>
-                <button className="bg-surface-container-highest text-secondary font-bold text-lg px-10 py-5 rounded-full transition-all hover:bg-surface-container hover:scale-105 active:scale-95">
-                  Become a Merchant
+              </div>
+            </div>
+
+            {/* Offer Card 2: Silver Sell */}
+            <div className="glass-card rounded-xl p-8 flex flex-col border-l-4 border-secondary group hover:bg-[#1e1f26] transition-all duration-300">
+              <div className="flex justify-between items-start mb-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#e8e8e8] to-[#70706f] flex items-center justify-center">
+                    <ArrowDownUp className="text-on-primary-fixed w-8 h-8" />
+                  </div>
+                  <div>
+                    <h4 className="metallic-silver font-headline font-extrabold text-2xl tracking-tighter">sXAG</h4>
+                    <span className="text-xs font-bold text-on-surface-variant">Synthetic Silver</span>
+                  </div>
+                </div>
+                <div className="bg-primary/10 px-3 py-1 rounded-full">
+                  <span className="text-primary text-xs font-bold font-headline uppercase tracking-tighter">NEW OFFER</span>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4 mb-8">
+                <div className="flex justify-between items-baseline">
+                  <span className="text-on-surface-variant text-sm font-medium">Price per Oz</span>
+                  <span className="text-2xl font-extrabold font-headline">$24.88</span>
+                </div>
+                <div className="flex justify-between items-baseline">
+                  <span className="text-on-surface-variant text-sm font-medium">Limits</span>
+                  <span className="text-sm font-bold">100.00 - 2,500.00 EUR</span>
+                </div>
+              </div>
+              <div className="mt-auto pt-6 flex items-center justify-between border-t border-white/5">
+                <div className="flex items-center gap-2">
+                  <Zap className="text-primary w-4 h-4" />
+                  <span className="text-xs font-bold text-on-surface-variant">P2P Escrow</span>
+                </div>
+                <button className="bg-gradient-to-r from-primary to-primary-dim text-on-primary-container px-8 py-3 rounded-full font-headline font-extrabold text-sm group-hover:scale-105 transition-transform">
+                  SELL sXAG
                 </button>
               </div>
             </div>
-            <div className="flex-1 w-full max-w-xl">
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl blur-2xl group-hover:blur-3xl transition-all opacity-50"></div>
-                <div className="relative bg-surface-container-low rounded-xl p-2 border border-outline-variant/15 overflow-hidden">
-                  <Image width={800} height={500} alt="Synthetic Assets Hero" className="rounded-lg w-full h-[500px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeRiVlOfT8EIaMYgpbpNMcWIZ7CZ2Qa4P3d7GXjS9YlmVUPygkQ7nsCVAIvTzZ1S-7v7ok3X1LT4rkGrfkz1uwLCYRWyMIShVZOpmiJIoW3rVv_QSDgl75TJ8q9QniHG9fUdAws5kAy-n225vYkkqB3dp4IPe_EUl5RQPDw7fskFRgmTShuVs8t3Rom1MtWOJHKQ4mK747pGPflryKlt0qxrUWWm_vI3jETwVgPjwg7zDySGz1G_odrp8PRs_kuU23NPleYMKlOtk" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Section 2: Why Aureum? */}
-        <section className="py-24 px-8 bg-surface-container-low rounded-[3rem]">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="font-headline text-4xl md:text-5xl font-bold mb-4">Why Aureum?</h2>
-              <div className="h-1.5 w-24 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Feature Card 1 */}
-              <div className="bg-surface-container p-8 rounded-xl border border-outline-variant/10 hover:border-primary/30 transition-all group">
-                <div className="w-14 h-14 bg-primary-container rounded-full flex items-center justify-center mb-6 text-on-primary-container">
-                  <CircleDollarSign fill="currentColor" className="w-8 h-8" stroke="currentColor" strokeWidth={1} />
-                </div>
-                <h3 className="font-headline text-xl font-bold mb-4">Synthetic Gold &amp; Silver</h3>
-                <p className="text-on-surface-variant font-body">Trade high-fidelity synthetic assets pegged to real-world commodity prices with zero physical friction.</p>
-              </div>
-
-              {/* Feature Card 2 */}
-              <div className="bg-surface-container p-8 rounded-xl border border-outline-variant/10 hover:border-secondary/30 transition-all group">
-                <div className="w-14 h-14 bg-secondary-container rounded-full flex items-center justify-center mb-6 text-on-secondary-container">
-                  <Coins fill="currentColor" className="w-8 h-8" stroke="currentColor" strokeWidth={1} />
-                </div>
-                <h3 className="font-headline text-xl font-bold mb-4">Zero Fees</h3>
-                <p className="text-on-surface-variant font-body">Our P2P architecture eliminates traditional brokerage fees, keeping more value in your digital vault.</p>
-              </div>
-
-              {/* Feature Card 3 */}
-              <div className="bg-surface-container p-8 rounded-xl border border-outline-variant/10 hover:border-primary/30 transition-all group">
-                <div className="w-14 h-14 bg-surface-container-highest rounded-full flex items-center justify-center mb-6 text-primary">
-                  <ShieldCheck fill="currentColor" className="w-8 h-8" stroke="currentColor" strokeWidth={1} />
-                </div>
-                <h3 className="font-headline text-xl font-bold mb-4">24/7 Escrow Protection</h3>
-                <p className="text-on-surface-variant font-body">Automated smart contract escrows ensure your assets are protected until both parties fulfill their terms.</p>
-              </div>
-
-              {/* Feature Card 4 */}
-              <div className="bg-surface-container p-8 rounded-xl border border-outline-variant/10 hover:border-secondary/30 transition-all group">
-                <div className="w-14 h-14 bg-secondary-container rounded-full flex items-center justify-center mb-6 text-on-secondary-container">
-                  <Globe fill="currentColor" className="w-8 h-8" stroke="currentColor" strokeWidth={1} />
-                </div>
-                <h3 className="font-headline text-xl font-bold mb-4">Global Liquidity</h3>
-                <p className="text-on-surface-variant font-body">Access deep pools of liquidity from verified merchants spanning every continent and currency.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 3: Market Highlights */}
-        <section className="py-24 px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-              <div>
-                <h2 className="font-headline text-4xl md:text-5xl font-bold mb-4">Market Highlights</h2>
-                <p className="text-on-surface-variant">Real-time valuation of the world&apos;s most stable synthetic assets.</p>
-              </div>
-              <button className="text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all">
-                View All Markets <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Market Card 1 */}
-              <div className="bg-surface-container-low rounded-lg p-8 flex items-center gap-8 relative overflow-hidden">
-                <div className="absolute right-0 top-0 opacity-10">
-                  <Sparkles className="w-[10rem] h-[10rem]" />
-                </div>
-                <div className="h-24 w-24 rounded-full overflow-hidden bg-gradient-to-br from-yellow-500/20 to-orange-600/20 flex-shrink-0 flex items-center justify-center">
-                  <Image width={96} height={96} alt="sXAU" className="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGvDFUv28yk5LnL0gqICFbzDoRnybZQ8dg_JGgyrtdxu3rxmgro2w9irSiBoe_4i9MhOyAmqmW3aiVg17JFtNLphU3wvOhdKhLWwieZVSkzDRBaiuN8YSgCCH18J1yfRegdc17-b8CiSbC04D5U6oWJSoGz86RKTyKzhUCcQUVnMwD-gvXHPgfubRet1ojUM6KQjV-Kon-IFyW-L1Q_Lsq2Y0FuTXWMRv9ePitMKyElFOqK2plLuF228O4iYtFqebQAxP_yn2wv58" />
-                </div>
-                <div className="flex-1">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-2xl font-bold font-headline">sXAU / USD</h3>
-                    <span className="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold tracking-widest">+1.24%</span>
+            {/* Offer Card 3: Fiat Exchange */}
+            <div className="glass-card rounded-xl p-8 flex flex-col border-l-4 border-on-surface-variant group hover:bg-[#1e1f26] transition-all duration-300">
+              <div className="flex justify-between items-start mb-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full bg-surface-container-highest flex items-center justify-center">
+                    <CreditCard className="text-on-surface w-8 h-8" />
                   </div>
-                  <div className="flex items-end gap-4">
-                    <span className="text-4xl font-black font-headline">$2,148.50</span>
-                    <span className="text-on-surface-variant text-sm mb-1">Vol: $4.2M</span>
+                  <div>
+                    <h4 className="text-on-surface font-headline font-extrabold text-2xl tracking-tighter">USD / EUR</h4>
+                    <span className="text-xs font-bold text-on-surface-variant">Fiat Bridge</span>
                   </div>
                 </div>
               </div>
+              <div className="flex flex-col gap-4 mb-8">
+                <div className="flex justify-between items-baseline">
+                  <span className="text-on-surface-variant text-sm font-medium">Exchange Rate</span>
+                  <span className="text-2xl font-extrabold font-headline">0.925</span>
+                </div>
+                <div className="flex justify-between items-baseline">
+                  <span className="text-on-surface-variant text-sm font-medium">Available</span>
+                  <span className="text-sm font-bold">45,000.00 USD</span>
+                </div>
+              </div>
+              <div className="mt-auto pt-6 flex items-center justify-between border-t border-white/5">
+                <div className="flex items-center gap-2">
+                  <Shield className="text-on-surface-variant w-4 h-4" />
+                  <span className="text-xs font-bold text-on-surface-variant">SEPA / Wire</span>
+                </div>
+                <button className="bg-surface-container-highest text-on-surface px-8 py-3 rounded-full font-headline font-extrabold text-sm group-hover:scale-105 transition-transform">
+                  EXCHANGE
+                </button>
+              </div>
+            </div>
 
-              {/* Market Card 2 */}
-              <div className="bg-surface-container-low rounded-lg p-8 flex items-center gap-8 relative overflow-hidden">
-                <div className="absolute right-0 top-0 opacity-10">
-                  <Droplets className="w-[10rem] h-[10rem]" />
-                </div>
-                <div className="h-24 w-24 rounded-full overflow-hidden bg-gradient-to-br from-slate-400/20 to-slate-600/20 flex-shrink-0 flex items-center justify-center">
-                  <Image width={96} height={96} alt="sXAG" className="w-full h-full object-cover opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAD_UTqddDap_QjgBMoxtpJwh1SgIEMqwl0vmEUFUuKVk76ET51tKBgkWhZHz5EvWw3kwbDYx5XIsc1Dw5860GnfGGHdbBfkJylanaMg8XtdQg4rKZZBlwP8t88wBxH49BO3q4okQG4lWPjid7YApDOTIPxejTyzreG8xZHgs7IQ58CR-jrZH7ru3d3_TSTmcOEOL37ZRwTywYWobuWtPHToRFJUKEpBhyrCEaHBxWazyE9coyKgU4ehwAPeK61mJUufsD08C2Kp8" />
-                </div>
-                <div className="flex-1">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-2xl font-bold font-headline">sXAG / EUR</h3>
-                    <span className="bg-error-container text-on-error-container px-3 py-1 rounded-full text-xs font-bold tracking-widest">-0.45%</span>
+            {/* Offer Card 4: Gold Buy (Alternative) */}
+            <div className="glass-card rounded-xl p-8 flex flex-col border-l-4 border-primary group hover:bg-[#1e1f26] transition-all duration-300">
+              <div className="flex justify-between items-start mb-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#bf953f] to-[#fcf6ba] flex items-center justify-center">
+                    <CreditCard className="text-on-primary-fixed w-8 h-8" />
                   </div>
-                  <div className="flex items-end gap-4">
-                    <span className="text-4xl font-black font-headline">€23.12</span>
-                    <span className="text-on-surface-variant text-sm mb-1">Vol: $1.8M</span>
+                  <div>
+                    <h4 className="metallic-gold font-headline font-extrabold text-2xl tracking-tighter">sXAU</h4>
+                    <span className="text-xs font-bold text-on-surface-variant">Synthetic Gold</span>
                   </div>
                 </div>
+              </div>
+              <div className="flex flex-col gap-4 mb-8">
+                <div className="flex justify-between items-baseline">
+                  <span className="text-on-surface-variant text-sm font-medium">Price per Oz</span>
+                  <span className="text-2xl font-extrabold font-headline">$2,148.50</span>
+                </div>
+                <div className="flex justify-between items-baseline">
+                  <span className="text-on-surface-variant text-sm font-medium">Limits</span>
+                  <span className="text-sm font-bold">1,000.00 - 50,000.00 USD</span>
+                </div>
+              </div>
+              <div className="mt-auto pt-6 flex items-center justify-between border-t border-white/5">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="text-secondary w-4 h-4" />
+                  <span className="text-xs font-bold text-on-surface-variant">Insured Trade</span>
+                </div>
+                <button className="bg-gradient-to-r from-secondary to-secondary-container text-on-secondary px-8 py-3 rounded-full font-headline font-extrabold text-sm group-hover:scale-105 transition-transform">
+                  BUY sXAU
+                </button>
               </div>
             </div>
           </div>
-        </section>
+        </div>
 
-        {/* Section 4: How it Works */}
-        <section className="py-24 px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-20">
-              <h2 className="font-headline text-4xl md:text-5xl font-bold mb-6">Forge Your Path</h2>
-              <p className="text-on-surface-variant max-w-xl mx-auto">Trading synthetic assets has never been more intuitive. Follow our streamlined alchemy process.</p>
+        {/* Footer / Call to Action */}
+        <section className="mt-24 bg-surface-container rounded-xl overflow-hidden relative">
+          <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAZX9huJj0B-UUpsEk5kIp79tpi-yfAgDIDBtZDfNIq1wpcsBlm7FUN_eCN0STaNJULv3CYgLQBAtiFQ1_mTgamvVKPkVVtqwLkVNxz90nrM3cehbEK7s6GLkngblUOE_-EC4h1HrCMt0gad4eBwdILiIlqzJ-O45nnmeTgqR1KM39ZBPJB8K_TW6axtfAwObq0vZ9YnR8QXzwsYkeQiS5eHrs9gvgNZWFvwq_tOTZMC6zPRbrm0xngJqI5PgUVYAKtyNnwOqu1X2E')" }}></div>
+          <div className="relative z-10 p-12 flex flex-col md:flex-row items-center justify-between gap-12">
+            <div className="text-center md:text-left max-w-xl">
+              <h2 className="text-3xl md:text-4xl font-headline font-extrabold mb-4 tracking-tight">Become an Aureum Merchant</h2>
+              <p className="text-on-surface-variant font-medium">Create your own synthetic offers and earn competitive spreads on global trade volume.</p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
-              {/* Connector Line (Desktop Only) */}
-              <div className="hidden md:block absolute top-24 left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-primary/20 via-secondary/40 to-primary/20 z-0"></div>
-
-              {/* Step 1 */}
-              <div className="relative z-10 flex flex-col items-center text-center group">
-                <div className="w-20 h-20 rounded-full bg-surface-container-highest border-4 border-surface flex items-center justify-center mb-8 shadow-2xl group-hover:bg-primary-container transition-all">
-                  <span className="text-3xl font-black text-primary group-hover:text-on-primary-container">1</span>
-                </div>
-                <h3 className="font-headline text-2xl font-bold mb-4">Connect Wallet</h3>
-                <p className="text-on-surface-variant font-body">Securely link your decentralized wallet. We support MetaMask, WalletConnect, and more.</p>
-              </div>
-
-              {/* Step 2 */}
-              <div className="relative z-10 flex flex-col items-center text-center group">
-                <div className="w-20 h-20 rounded-full bg-surface-container-highest border-4 border-surface flex items-center justify-center mb-8 shadow-2xl group-hover:bg-secondary-container transition-all">
-                  <span className="text-3xl font-black text-secondary group-hover:text-on-secondary-container">2</span>
-                </div>
-                <h3 className="font-headline text-2xl font-bold mb-4">Pick a Merchant</h3>
-                <p className="text-on-surface-variant font-body">Browse our curated marketplace of verified liquidity providers with transparent trust ratings.</p>
-              </div>
-
-              {/* Step 3 */}
-              <div className="relative z-10 flex flex-col items-center text-center group">
-                <div className="w-20 h-20 rounded-full bg-surface-container-highest border-4 border-surface flex items-center justify-center mb-8 shadow-2xl group-hover:bg-primary-container transition-all">
-                  <span className="text-3xl font-black text-primary group-hover:text-on-primary-container">3</span>
-                </div>
-                <h3 className="font-headline text-2xl font-bold mb-4">Receive Assets</h3>
-                <p className="text-on-surface-variant font-body">Confirm your trade. The smart contract escrows the assets until you receive your payment.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 5: Final CTA */}
-        <section className="py-24 px-8 relative">
-          <div className="max-w-5xl mx-auto bg-gradient-to-br from-surface-container-high to-surface-container-lowest rounded-xl p-16 text-center border border-primary/10 relative overflow-hidden">
-            <div className="absolute inset-0 opacity-10 pointer-events-none">
-              <Image width={1024} height={400} alt="Background texture" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdW079lqqSRsyvSEG2oRn_NhtAf-sk9RJa0LAR1Z8Z4W2YrC4x-SiPk8ooVTd8XcGwAOTgin_p1qZdmI9T_FbDUjZKhmDX6CADsHGtNQTXO-0DmkRK0Obf84uITd9g1Glg8xkQ5tCYSLNNa2Tt4xmo_gNLnT4M_2M3nczs9SszAqkpsa4CuEmO1tNos609pG1hjrLIhxO0G-4VSbEgTXebUBW2tqmhILKSOrarWNlzLtLiAD2Ip1qe49DSbFuitspRyBCqv36nyQ8" />
-            </div>
-            <div className="relative z-10">
-              <h2 className="font-headline text-4xl md:text-6xl font-extrabold mb-8">Ready to Forge Your First Trade?</h2>
-              <p className="text-xl text-on-surface-variant max-w-2xl mx-auto mb-12">
-                Join thousands of merchants and traders already leveraging the Aureum liquidity network.
-              </p>
-              <button className="bg-gradient-to-r from-primary to-primary-dim text-on-primary-container font-black text-2xl px-12 py-6 rounded-full aureum-glow transition-all hover:scale-110 active:opacity-80">
-                Get Started
-              </button>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button className="bg-primary text-on-primary-container px-10 py-4 rounded-full font-headline font-extrabold text-base hover:shadow-[0_0_20px_rgba(197,154,255,0.4)] transition-all">Apply Now</button>
+              <button className="bg-surface-container-highest border border-white/5 px-10 py-4 rounded-full font-headline font-extrabold text-base hover:bg-surface-bright transition-all">Merchant Guide</button>
             </div>
           </div>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="w-full rounded-t-[3rem] mt-20 bg-surface-container-low">
-        <div className="flex flex-col md:flex-row justify-between items-center px-12 py-16 gap-8 max-w-7xl mx-auto">
-          <div className="flex flex-col gap-4 items-center md:items-start">
-            <div className="text-lg font-bold text-on-background font-headline">Aureum P2P</div>
-            <p className="text-on-background opacity-60 text-sm font-body tracking-wide">© 2024 Aureum P2P. Secure Synthetic Alchemy.</p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-8">
-            <a className="text-on-background opacity-60 text-sm tracking-wide font-body hover:text-primary-dim transition-all underline-offset-4 hover:underline" href="#">Terms of Service</a>
-            <a className="text-on-background opacity-60 text-sm tracking-wide font-body hover:text-primary-dim transition-all underline-offset-4 hover:underline" href="#">Privacy Policy</a>
-            <a className="text-on-background opacity-60 text-sm tracking-wide font-body hover:text-primary-dim transition-all underline-offset-4 hover:underline" href="#">Risk Disclosure</a>
-            <a className="text-on-background opacity-60 text-sm tracking-wide font-body hover:text-primary-dim transition-all underline-offset-4 hover:underline" href="#">Community</a>
-            <a className="text-on-background opacity-60 text-sm tracking-wide font-body hover:text-primary-dim transition-all underline-offset-4 hover:underline" href="#">Audit Reports</a>
-          </div>
-        </div>
-      </footer>
-    </>
+      {/* FAB (Contextual for Home/Marketplace) */}
+      <button className="fixed bottom-8 right-8 w-16 h-16 bg-gradient-to-br from-primary to-primary-dim rounded-full shadow-2xl flex items-center justify-center group active:scale-90 transition-all z-50">
+        <span className="text-on-primary-container text-3xl group-hover:rotate-90 transition-transform">+</span>
+      </button>
+    </div>
   );
 }
