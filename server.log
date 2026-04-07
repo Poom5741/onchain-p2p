@@ -1,0 +1,39 @@
+
+> myapp@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+✓ Ready in 594ms
+
+⚠ Your project has `@next/font` installed as a dependency, please use the built-in `next/font` instead. The `@next/font` package will be removed in Next.js 14. You can migrate by running `npx --yes @next/codemod@latest built-in-next-font .`. Read more: https://nextjs.org/docs/messages/built-in-next-font
+○ Compiling / ...
+⨯ Error: Invalid src prop (https://lh3.googleusercontent.com/aida-public/AB6AXuAeRiVlOfT8EIaMYgpbpNMcWIZ7CZ2Qa4P3d7GXjS9YlmVUPygkQ7nsCVAIvTzZ1S-7v7ok3X1LT4rkGrfkz1uwLCYRWyMIShVZOpmiJIoW3rVv_QSDgl75TJ8q9QniHG9fUdAws5kAy-n225vYkkqB3dp4IPe_EUl5RQPDw7fskFRgmTShuVs8t3Rom1MtWOJHKQ4mK747pGPflryKlt0qxrUWWm_vI3jETwVgPjwg7zDySGz1G_odrp8PRs_kuU23NPleYMKlOtk) on `next/image`, hostname "lh3.googleusercontent.com" is not configured under images in your `next.config.js`
+See more info: https://nextjs.org/docs/messages/next-image-unconfigured-host
+    at ignore-listed frames {
+  digest: '2012244778@E231'
+}
+ GET / 500 in 5.6s (next.js: 4.8s, application-code: 799ms)
+[browser] Uncaught Error: Invalid src prop (https://lh3.googleusercontent.com/aida-public/AB6AXuAeRiVlOfT8EIaMYgpbpNMcWIZ7CZ2Qa4P3d7GXjS9YlmVUPygkQ7nsCVAIvTzZ1S-7v7ok3X1LT4rkGrfkz1uwLCYRWyMIShVZOpmiJIoW3rVv_QSDgl75TJ8q9QniHG9fUdAws5kAy-n225vYkkqB3dp4IPe_EUl5RQPDw7fskFRgmTShuVs8t3Rom1MtWOJHKQ4mK747pGPflryKlt0qxrUWWm_vI3jETwVgPjwg7zDySGz1G_odrp8PRs_kuU23NPleYMKlOtk) on `next/image`, hostname "lh3.googleusercontent.com" is not configured under images in your `next.config.js`
+See more info: https://nextjs.org/docs/messages/next-image-unconfigured-host
+    at Array.map (<anonymous>)
+    at Home (src/app/page.tsx:53:19)
+  51 |                 <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-seco...
+  52 |                 <div className="relative bg-surface-container-low rounded-xl p-2 border bo...
+> 53 |                   <Image width={800} height={500} alt="Synthetic Assets Hero" className="r...
+     |                   ^
+  54 |                 </div>
+  55 |               </div>
+  56 |             </div>
+⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+▲ Next.js 16.2.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+✓ Ready in 477ms
+
+ GET / 200 in 851ms (next.js: 292ms, application-code: 559ms)
+[browser] Image with src "https://lh3.googleusercontent.com/aida-public/AB6AXuAeRiVlOfT8EIaMYgpbpNMcWIZ7CZ2Qa4P3d7GXjS9YlmVUPygkQ7nsCVAIvTzZ1S-7v7ok3X1LT4rkGrfkz1uwLCYRWyMIShVZOpmiJIoW3rVv_QSDgl75TJ8q9QniHG9fUdAws5kAy-n225vYkkqB3dp4IPe_EUl5RQPDw7fskFRgmTShuVs8t3Rom1MtWOJHKQ4mK747pGPflryKlt0qxrUWWm_vI3jETwVgPjwg7zDySGz1G_odrp8PRs_kuU23NPleYMKlOtk" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "https://lh3.googleusercontent.com/aida-public/AB6AXuAeRiVlOfT8EIaMYgpbpNMcWIZ7CZ2Qa4P3d7GXjS9YlmVUPygkQ7nsCVAIvTzZ1S-7v7ok3X1LT4rkGrfkz1uwLCYRWyMIShVZOpmiJIoW3rVv_QSDgl75TJ8q9QniHG9fUdAws5kAy-n225vYkkqB3dp4IPe_EUl5RQPDw7fskFRgmTShuVs8t3Rom1MtWOJHKQ4mK747pGPflryKlt0qxrUWWm_vI3jETwVgPjwg7zDySGz1G_odrp8PRs_kuU23NPleYMKlOtk" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+✓ Compiled in 53ms
