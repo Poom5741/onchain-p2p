@@ -58,7 +58,7 @@ export default function MerchantDashboard() {
       />
 
       {/* Main Content Canvas */}
-      <main className="lg:pl-64 pt-24 pb-12 px-8 min-h-screen">
+      <main className="lg:ml-64 pt-24 pb-12 px-8 min-h-screen">
         {/* Header & Stats Section */}
         <header className="mb-10">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
