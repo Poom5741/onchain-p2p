@@ -197,18 +197,18 @@ export default function NewAdPage() {
 
         {/* Navigation Actions */}
         <footer className="mt-12 flex items-center justify-between pt-8 border-t border-surface-container-highest">
-          <button className="flex items-center gap-2 text-on-surface-variant hover:text-on-surface transition-colors font-bold font-body">
+          <Link href="/merchant" className="flex items-center gap-2 text-on-surface-variant hover:text-on-surface transition-colors font-bold font-body">
             <ArrowLeft className="w-5 h-5" />
             Cancel
-          </button>
+          </Link>
           <div className="flex gap-4">
-            <button className="px-8 py-3 bg-surface-container-highest rounded-full text-on-surface-variant font-bold hover:bg-surface-container transition-all font-body">
+            <Link href="/merchant" className="px-8 py-3 bg-surface-container-highest rounded-full text-on-surface-variant font-bold hover:bg-surface-container transition-all font-body inline-block">
               Draft
-            </button>
-            <button className="px-10 py-3 bg-gradient-to-r from-primary to-primary-dim text-on-primary-container rounded-full font-extrabold flex items-center gap-2 shadow-[0_0_20px_rgba(197,154,255,0.2)] hover:scale-105 active:scale-95 transition-all font-body">
+            </Link>
+            <Link href="/merchant" className="px-10 py-3 bg-gradient-to-r from-primary to-primary-dim text-on-primary-container rounded-full font-extrabold flex items-center gap-2 shadow-[0_0_20px_rgba(197,154,255,0.2)] hover:scale-105 active:scale-95 transition-all font-body inline-block">
               Next Step
-              <ArrowRight className="w-5 h-5" />
-            </button>
+              <ArrowRight className="w-5 h-5 inline-block" />
+            </Link>
           </div>
         </footer>
       </main>

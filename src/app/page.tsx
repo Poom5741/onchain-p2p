@@ -12,14 +12,14 @@ export default function LandingPage() {
             Aureum
           </div>
           <div className="hidden md:flex items-center gap-10">
-            <Link className="text-primary border-b-2 border-primary pb-1 font-headline font-bold tracking-tight transition-colors duration-300" href="#">Marketplace</Link>
-            <Link className="text-on-background opacity-80 hover:text-primary transition-colors duration-300 font-headline font-bold tracking-tight" href="#">Trades</Link>
+            <Link className="text-primary border-b-2 border-primary pb-1 font-headline font-bold tracking-tight transition-colors duration-300" href="/trade/buyer">Marketplace</Link>
+            <Link className="text-on-background opacity-80 hover:text-primary transition-colors duration-300 font-headline font-bold tracking-tight" href="/trade/buyer">Trades</Link>
             <Link className="text-on-background opacity-80 hover:text-primary transition-colors duration-300 font-headline font-bold tracking-tight" href="#">Wallet</Link>
             <Link className="text-on-background opacity-80 hover:text-primary transition-colors duration-300 font-headline font-bold tracking-tight" href="#">Help</Link>
           </div>
           <div className="flex items-center gap-4">
-            <button className="hidden lg:block text-on-background font-bold py-2 px-4 hover:text-primary transition-all">Merchant Portal</button>
-            <button className="bg-gradient-to-r from-primary to-primary-dim text-on-primary-container font-bold py-3 px-8 rounded-full scale-95 active:opacity-80 transition-all">Start Trading</button>
+            <Link href="/merchant" className="hidden lg:block text-on-background font-bold py-2 px-4 hover:text-primary transition-all">Merchant Portal</Link>
+            <Link href="/trade/buyer" className="bg-gradient-to-r from-primary to-primary-dim text-on-primary-container font-bold py-3 px-8 rounded-full scale-95 active:opacity-80 transition-all inline-block">Start Trading</Link>
           </div>
         </div>
       </nav>
@@ -39,12 +39,12 @@ export default function LandingPage() {
                 Exchange synthetic gold, silver, and fiat currencies directly with verified merchants. Secure, fast, and no middlemen.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
-                <button className="bg-gradient-to-r from-primary to-primary-dim text-on-primary-container font-bold text-lg px-10 py-5 rounded-full aureum-glow transition-all hover:scale-105 active:scale-95">
+                <Link href="/trade/buyer" className="bg-gradient-to-r from-primary to-primary-dim text-on-primary-container font-bold text-lg px-10 py-5 rounded-full aureum-glow transition-all hover:scale-105 active:scale-95 inline-block text-center">
                   Start Trading
-                </button>
-                <button className="bg-surface-container-highest text-secondary font-bold text-lg px-10 py-5 rounded-full transition-all hover:bg-surface-container hover:scale-105 active:scale-95">
+                </Link>
+                <Link href="/merchant" className="bg-surface-container-highest text-secondary font-bold text-lg px-10 py-5 rounded-full transition-all hover:bg-surface-container hover:scale-105 active:scale-95 inline-block text-center">
                   Become a Merchant
-                </button>
+                </Link>
               </div>
             </div>
             <div className="flex-1 w-full max-w-xl">
@@ -116,9 +116,9 @@ export default function LandingPage() {
                 <h2 className="font-headline text-4xl md:text-5xl font-bold mb-4">Market Highlights</h2>
                 <p className="text-on-surface-variant font-body">Real-time valuation of the world&apos;s most stable synthetic assets.</p>
               </div>
-              <button className="text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all">
+              <Link href="/trade/buyer" className="text-primary font-bold flex items-center gap-2 hover:gap-4 transition-all">
                 View All Markets <ArrowRight className="w-6 h-6" />
-              </button>
+              </Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Market Card 1 */}
@@ -212,9 +212,9 @@ export default function LandingPage() {
               <p className="text-xl text-on-surface-variant max-w-2xl mx-auto mb-12 font-body">
                 Join thousands of merchants and traders already leveraging the Aureum liquidity network.
               </p>
-              <button className="bg-gradient-to-r from-primary to-primary-dim text-on-primary-container font-black text-2xl px-12 py-6 rounded-full aureum-glow transition-all hover:scale-110 active:opacity-80">
+              <Link href="/trade/buyer" className="bg-gradient-to-r from-primary to-primary-dim text-on-primary-container font-black text-2xl px-12 py-6 rounded-full aureum-glow transition-all hover:scale-110 active:opacity-80 inline-block">
                 Get Started
-              </button>
+              </Link>
             </div>
           </div>
         </section>

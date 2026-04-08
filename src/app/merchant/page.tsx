@@ -19,6 +19,7 @@ import SideNavBar from "@/components/layout/SideNavBar";
 import MobileNavBar from "@/components/layout/MobileNavBar";
 import AdCard from "@/components/cards/AdCard";
 import HistoryItem from "@/components/cards/HistoryItem";
+import Link from "next/link";
 
 export default function MerchantDashboard() {
   const sideNavItems = [
@@ -49,10 +50,10 @@ export default function MerchantDashboard() {
         bottomItems={bottomNavItems}
         headerIcon={<div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-dim flex items-center justify-center text-on-primary font-bold text-xl">A</div>}
         actionButton={
-          <button className="w-full bg-secondary text-on-secondary py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+          <Link href="/ad/new" className="w-full bg-secondary text-on-secondary py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all">
             <PlusCircle className="w-5 h-5 fill-secondary text-on-secondary" />
             New Trade
-          </button>
+          </Link>
         }
       />
 
@@ -132,25 +133,29 @@ export default function MerchantDashboard() {
               <button className="text-sm font-bold text-primary hover:underline">View All</button>
             </div>
             <div className="space-y-4">
-              <AdCard
-                assetName="Sell sXAU (Synthetic Gold)"
-                assetDetails="Limit: €500 - €5,000 | Bank Transfer"
-                assetSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuAz1GJdw6QZuGQblk4NcYZ4ad5XMNpYe4MUyL0lDsOQhpbrCVtYs4qXq4K7nrJYl8ZSP5OkurdqJlfIMz48w7vgP1ZRfHicxPDKwpVJngXa13h5xLgm96EI82I07zk7h2yfZR0baCTLZvFkNX7qQcUIT6pZ0F6HWe5XMkBLabJKW57z6pxqhO-gvK0PQ4E8ir-8ioZkr7s4CG0pxBZTF4oc3NdYyHk4bCoKQ1Mj9WEdm3HjNzUCjlbSVzob6Qz7hf9b5ceVtag60Rg"
-                price="€2,145.20"
-                priceChangeStr="+1.5%"
-                priceChangeClass="text-secondary"
-                isOnline={true}
-              />
+              <Link href="/trade/merchant" className="block hover:scale-[1.01] transition-transform">
+                <AdCard
+                  assetName="Sell sXAU (Synthetic Gold)"
+                  assetDetails="Limit: €500 - €5,000 | Bank Transfer"
+                  assetSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuAz1GJdw6QZuGQblk4NcYZ4ad5XMNpYe4MUyL0lDsOQhpbrCVtYs4qXq4K7nrJYl8ZSP5OkurdqJlfIMz48w7vgP1ZRfHicxPDKwpVJngXa13h5xLgm96EI82I07zk7h2yfZR0baCTLZvFkNX7qQcUIT6pZ0F6HWe5XMkBLabJKW57z6pxqhO-gvK0PQ4E8ir-8ioZkr7s4CG0pxBZTF4oc3NdYyHk4bCoKQ1Mj9WEdm3HjNzUCjlbSVzob6Qz7hf9b5ceVtag60Rg"
+                  price="€2,145.20"
+                  priceChangeStr="+1.5%"
+                  priceChangeClass="text-secondary"
+                  isOnline={true}
+                />
+              </Link>
 
-              <AdCard
-                assetName="Buy sXAG (Synthetic Silver)"
-                assetDetails="Limit: €100 - €1,500 | Revolut, SEPA"
-                assetSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuCUuBEilHXs9GqyHSsw4Rf6rN_89yiQbrjyNBXCApzD7os6NLi7SbIFizvgXqYAHt_NZSnXgBNYjdRlwwVim47b4mNggoiiaLRTGxLdb9ucBdJ102MCArcZ29fbezf4gJ1_WVwVbj2yw-TFSGR93R5W3pk_nCm4YWXyNWmDX1Ygf8lnOLs5-2_4Lc3rwI2nZbFkmmlwFWk3e7dMkkB0FKFvlwXiZ5MT7FqKA9Ut8EX8P3qJc9_Mxy5yr4l2zmo522Bd6yqkGHSkoW0"
-                price="€28.45"
-                priceChangeStr="-0.2%"
-                priceChangeClass="text-error"
-                isOnline={false}
-              />
+              <Link href="/trade/merchant" className="block hover:scale-[1.01] transition-transform">
+                <AdCard
+                  assetName="Buy sXAG (Synthetic Silver)"
+                  assetDetails="Limit: €100 - €1,500 | Revolut, SEPA"
+                  assetSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuCUuBEilHXs9GqyHSsw4Rf6rN_89yiQbrjyNBXCApzD7os6NLi7SbIFizvgXqYAHt_NZSnXgBNYjdRlwwVim47b4mNggoiiaLRTGxLdb9ucBdJ102MCArcZ29fbezf4gJ1_WVwVbj2yw-TFSGR93R5W3pk_nCm4YWXyNWmDX1Ygf8lnOLs5-2_4Lc3rwI2nZbFkmmlwFWk3e7dMkkB0FKFvlwXiZ5MT7FqKA9Ut8EX8P3qJc9_Mxy5yr4l2zmo522Bd6yqkGHSkoW0"
+                  price="€28.45"
+                  priceChangeStr="-0.2%"
+                  priceChangeClass="text-error"
+                  isOnline={false}
+                />
+              </Link>
             </div>
           </section>
 

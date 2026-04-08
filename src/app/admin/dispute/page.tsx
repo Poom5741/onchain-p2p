@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import {
   Bell,
@@ -253,20 +255,20 @@ export default function AdminDispute() {
                   Final Verdict
                 </h4>
                 <div className="space-y-4">
-                  <button className="w-full group bg-gradient-to-r from-secondary to-secondary-container text-on-secondary-fixed font-bold py-4 rounded-xl flex items-center justify-between px-6 transition-all active:scale-95 shadow-lg shadow-secondary/10">
+                  <Link href="/merchant" className="w-full group bg-gradient-to-r from-secondary to-secondary-container text-on-secondary-fixed font-bold py-4 rounded-xl flex items-center justify-between px-6 transition-all active:scale-95 shadow-lg shadow-secondary/10 inline-block">
                     <span className="flex items-center gap-3">
                       <CheckCircle2 className="w-5 h-5" />
                       Release to Buyer
                     </span>
-                    <span className="group-hover:translate-x-1 transition-transform">→</span>
-                  </button>
-                  <button className="w-full group bg-surface-container-highest text-on-surface font-bold py-4 rounded-xl flex items-center justify-between px-6 border border-outline-variant/20 hover:bg-surface-variant transition-all active:scale-95">
+                    <span className="group-hover:translate-x-1 transition-transform inline-block">→</span>
+                  </Link>
+                  <Link href="/merchant" className="w-full group bg-surface-container-highest text-on-surface font-bold py-4 rounded-xl flex items-center justify-between px-6 border border-outline-variant/20 hover:bg-surface-variant transition-all active:scale-95 inline-block">
                     <span className="flex items-center gap-3">
                       <Undo2 className="w-5 h-5" />
                       Refund to Merchant
                     </span>
-                    <span className="group-hover:translate-x-1 transition-transform">→</span>
-                  </button>
+                    <span className="group-hover:translate-x-1 transition-transform inline-block">→</span>
+                  </Link>
                   <div className="pt-4 mt-4 border-t border-outline-variant/20">
                     <button className="w-full bg-error-container text-on-error-container font-bold py-3 rounded-xl flex items-center justify-center gap-3 hover:bg-error-dim transition-all active:scale-95">
                       <Ban className="w-5 h-5" />

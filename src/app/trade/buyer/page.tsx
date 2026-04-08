@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import {
   Verified,
@@ -98,10 +100,10 @@ export default function BuyerTrade() {
 
           {/* Action Area */}
           <div className="flex flex-col md:flex-row gap-4">
-            <button className="flex-1 bg-gradient-to-r from-primary to-primary-dim text-on-primary-container py-4 rounded-full font-headline font-extrabold text-lg shadow-lg active:scale-95 transition-all">
+            <button className="flex-1 bg-gradient-to-r from-primary to-primary-dim text-on-primary-container py-4 rounded-full font-headline font-extrabold text-lg shadow-lg active:scale-95 transition-all" onClick={() => alert("Payment marked as complete!")}>
               I Have Paid
             </button>
-            <button className="bg-surface-container-highest text-error px-8 py-4 rounded-full font-headline font-bold hover:bg-error-container hover:text-on-error transition-all active:scale-95">
+            <button className="bg-surface-container-highest text-error px-8 py-4 rounded-full font-headline font-bold hover:bg-error-container hover:text-on-error transition-all active:scale-95" onClick={() => alert("Trade cancelled.")}>
               Cancel Trade
             </button>
           </div>
