@@ -2,25 +2,20 @@
 > myapp@0.1.0 dev
 > next dev
 
-⚠ Port 3000 is in use by an unknown process, using available port 3001 instead.
 ▲ Next.js 16.2.2 (Turbopack)
-- Local:         http://localhost:3001
-- Network:       http://192.168.0.2:3001
-✓ Ready in 620ms
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+✓ Ready in 594ms
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
 - Cache Components enabled
 
 ⚠ Your project has `@next/font` installed as a dependency, please use the built-in `next/font` instead. The `@next/font` package will be removed in Next.js 14. You can migrate by running `npx --yes @next/codemod@latest built-in-next-font .`. Read more: https://nextjs.org/docs/messages/built-in-next-font
 ○ Compiling / ...
- GET / 200 in 6.8s (next.js: 5.6s, application-code: 1234ms)
- GET /trade/buyer 200 in 1248ms (next.js: 678ms, application-code: 570ms)
-You provided a `checked` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultChecked`. Otherwise, set either `onChange` or `readOnly`.
-You provided a `checked` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultChecked`. Otherwise, set either `onChange` or `readOnly`.
-You provided a `checked` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultChecked`. Otherwise, set either `onChange` or `readOnly`.
-You provided a `checked` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultChecked`. Otherwise, set either `onChange` or `readOnly`.
-You provided a `checked` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultChecked`. Otherwise, set either `onChange` or `readOnly`.
-You provided a `checked` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultChecked`. Otherwise, set either `onChange` or `readOnly`.
-You provided a `checked` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultChecked`. Otherwise, set either `onChange` or `readOnly`.
-You provided a `checked` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultChecked`. Otherwise, set either `onChange` or `readOnly`.
- GET /merchant 200 in 1093ms (next.js: 597ms, application-code: 496ms)
-[browser] You provided a `checked` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultChecked`. Otherwise, set either `onChange` or `readOnly`.
-[browser] You provided a `checked` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultChecked`. Otherwise, set either `onChange` or `readOnly`.
+ GET / 200 in 6.2s (next.js: 5.2s, application-code: 1021ms)
+[browser] Image with src "https://lh3.googleusercontent.com/aida-public/AB6AXuAeRiVlOfT8EIaMYgpbpNMcWIZ7CZ2Qa4P3d7GXjS9YlmVUPygkQ7nsCVAIvTzZ1S-7v7ok3X1LT4rkGrfkz1uwLCYRWyMIShVZOpmiJIoW3rVv_QSDgl75TJ8q9QniHG9fUdAws5kAy-n225vYkkqB3dp4IPe_EUl5RQPDw7fskFRgmTShuVs8t3Rom1MtWOJHKQ4mK747pGPflryKlt0qxrUWWm_vI3jETwVgPjwg7zDySGz1G_odrp8PRs_kuU23NPleYMKlOtk" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[browser] Image with src "https://lh3.googleusercontent.com/aida-public/AB6AXuAeRiVlOfT8EIaMYgpbpNMcWIZ7CZ2Qa4P3d7GXjS9YlmVUPygkQ7nsCVAIvTzZ1S-7v7ok3X1LT4rkGrfkz1uwLCYRWyMIShVZOpmiJIoW3rVv_QSDgl75TJ8q9QniHG9fUdAws5kAy-n225vYkkqB3dp4IPe_EUl5RQPDw7fskFRgmTShuVs8t3Rom1MtWOJHKQ4mK747pGPflryKlt0qxrUWWm_vI3jETwVgPjwg7zDySGz1G_odrp8PRs_kuU23NPleYMKlOtk" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
