@@ -1,8 +1,5 @@
 import Image from "next/image";
 import {
-  Bell,
-  Copy,
-  Info,
   Verified,
   Shield,
   PlusCircle,
@@ -15,31 +12,39 @@ import {
   User,
   Star
 } from "lucide-react";
-import Link from "next/link";
+import TopNavBar from "@/components/layout/TopNavBar";
+import SideNavBar from "@/components/layout/SideNavBar";
+import MobileNavBar from "@/components/layout/MobileNavBar";
+import BankInstructions from "@/components/ui/BankInstructions";
+import ChatMessage from "@/components/ui/ChatMessage";
 
 export default function BuyerTrade() {
+  const sideNavItems = [
+    { href: "/", label: "Marketplace", icon: <Grid className="w-6 h-6" /> },
+    { href: "/trade/buyer", label: "Buyer Portal", icon: <ShoppingCart className="w-6 h-6" />, isActive: true },
+    { href: "#", label: "Asset Inventory", icon: <Database className="w-6 h-6" /> },
+  ];
+
+  const bottomNavItems = [
+    { href: "#", label: "Help", icon: <HelpCircle className="w-6 h-6" /> },
+  ];
+
+  const mobileNavItems = [
+    { href: "/", label: "Home", icon: <Grid className="w-5 h-5" /> },
+    { href: "/trade/buyer", label: "Trades", icon: <ShoppingCart className="w-5 h-5 fill-primary/20" />, isActive: true },
+    { href: "#", label: "Chat", icon: <MessageSquare className="w-5 h-5" /> },
+    { href: "#", label: "Profile", icon: <User className="w-5 h-5" /> },
+  ];
+
   return (
     <div className="min-h-screen bg-background text-on-surface">
-      {/* Top Navigation Shell */}
-      <nav className="fixed top-0 w-full z-50 bg-[#0d0e13]/80 backdrop-blur-xl flex justify-between items-center px-8 h-20 shadow-[0_20px_40px_rgba(197,154,255,0.08)]">
-        <div className="flex items-center gap-8">
-          <span className="text-2xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#c59aff] to-[#9547f7] font-headline">Aureum</span>
-          <div className="hidden md:flex items-center gap-6">
-            <Link className="text-[#f7f5fd]/60 hover:text-[#f7f5fd] transition-colors font-label" href="/">Marketplace</Link>
-            <Link className="text-[#c59aff] border-b-2 border-[#c59aff] pb-1 font-label" href="/trade/buyer">Trades</Link>
-            <a className="text-[#f7f5fd]/60 hover:text-[#f7f5fd] transition-colors font-label" href="#">Wallet</a>
-            <a className="text-[#f7f5fd]/60 hover:text-[#f7f5fd] transition-colors font-label" href="#">Help</a>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <button className="p-2 hover:bg-[#181920] rounded-full transition-all active:scale-95 duration-200">
-            <Bell className="w-5 h-5 text-on-surface-variant" />
-          </button>
-          <button className="bg-gradient-to-r from-[#c59aff] to-[#9547f7] text-on-primary-container font-headline font-bold px-6 py-2.5 rounded-full active:scale-95 transition-all">
-            Connect Wallet
-          </button>
-        </div>
-      </nav>
+      <TopNavBar activePath="trades" />
+
+      <SideNavBar
+        items={sideNavItems}
+        bottomItems={bottomNavItems}
+        isCollapsed={true}
+      />
 
       <main className="pt-24 pb-12 px-4 md:px-8 max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:pl-24">
         {/* Left Column: Trade Details & Instructions */}
@@ -83,50 +88,13 @@ export default function BuyerTrade() {
           </div>
 
           {/* Payment Instructions */}
-          <div className="bg-surface-container-low rounded-xl overflow-hidden">
-            <div className="bg-surface-container-high px-8 py-4 border-b border-outline-variant/10">
-              <h3 className="font-headline font-bold flex items-center gap-2">
-                <Database className="w-5 h-5 text-secondary" />
-                Bank Transfer Instructions
-              </h3>
-            </div>
-            <div className="p-8 space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-4">
-                  <div>
-                    <label className="text-xs text-on-surface-variant font-bold uppercase tracking-widest">Bank Name</label>
-                    <p className="text-lg font-headline font-semibold text-on-surface">NeoBank International SE</p>
-                  </div>
-                  <div>
-                    <label className="text-xs text-on-surface-variant font-bold uppercase tracking-widest">IBAN</label>
-                    <div className="flex items-center justify-between bg-surface-container-highest p-3 rounded-lg mt-1">
-                      <span className="font-mono text-secondary">DE89 3704 0044 0532 01</span>
-                      <button className="text-on-surface-variant hover:text-on-surface"><Copy className="w-4 h-4" /></button>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div>
-                    <label className="text-xs text-on-surface-variant font-bold uppercase tracking-widest">Account Holder</label>
-                    <p className="text-lg font-headline font-semibold text-on-surface">Aurum Liquidity Vault LLC</p>
-                  </div>
-                  <div>
-                    <label className="text-xs text-on-surface-variant font-bold uppercase tracking-widest">Reference Code (Mandatory)</label>
-                    <div className="flex items-center justify-between bg-primary/10 p-3 rounded-lg mt-1 border border-primary/20">
-                      <span className="font-mono text-primary font-bold">XAU-TRADE-9921-ALPHA</span>
-                      <button className="text-primary hover:text-on-primary-container"><Copy className="w-4 h-4" /></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-surface-container-highest/50 p-4 rounded-lg flex gap-4 items-start border border-outline-variant/10">
-                <Info className="w-5 h-5 text-primary flex-shrink-0" />
-                <p className="text-sm text-on-surface-variant leading-relaxed">
-                  Ensure the transfer amount matches exactly. Transfers typically settle within 15-30 minutes for SEPA Instant. Once sent, click the &quot;I Have Paid&quot; button to notify the seller.
-                </p>
-              </div>
-            </div>
-          </div>
+          <BankInstructions
+            bankName="NeoBank International SE"
+            iban="DE89 3704 0044 0532 01"
+            accountHolder="Aurum Liquidity Vault LLC"
+            referenceCode="XAU-TRADE-9921-ALPHA"
+            infoText="Ensure the transfer amount matches exactly. Transfers typically settle within 15-30 minutes for SEPA Instant. Once sent, click the &quot;I Have Paid&quot; button to notify the seller."
+          />
 
           {/* Action Area */}
           <div className="flex flex-col md:flex-row gap-4">
@@ -168,28 +136,17 @@ export default function BuyerTrade() {
               <span className="bg-surface-container-highest text-[10px] text-on-surface-variant px-3 py-1 rounded-full uppercase tracking-widest font-bold">Trade Started - 10:24 AM</span>
             </div>
 
-            {/* Seller Message */}
-            <div className="flex gap-3 max-w-[85%]">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
-                <Image width={32} height={32} alt="Seller" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBByKObr0sB_QRAhxqj4KZ-falzEbX34QAHXO0lwx_XHAXGVe6gB4jA1UaPoi9XA6EfppeBtN1KMoYAi6CftG-cO5LPPY_5RnnX5CX5o7zWtlKKumEKLHRq0Kj04eH-w91Oed7buDJ6LqjSZONLCsq8yG-8XB0eGsqVcO90QPX_BjRxk298529xxP_vMn5IGh0xv3B6TcmCM2Gz3XB8w0vM_sSf6gkA3DtVFH6vdT60H3O10OEfYiub-WTOvYzsciaRDFbgnW8CCAY" />
-              </div>
-              <div className="space-y-1">
-                <div className="bg-surface-container-highest p-4 rounded-2xl rounded-tl-none">
-                  <p className="text-sm leading-relaxed">Hi there! Thanks for the trade. I&apos;m online and ready to release the sXAU as soon as the transfer hits my account. 🚀</p>
-                </div>
-                <span className="text-[10px] text-on-surface-variant font-medium">10:25 AM</span>
-              </div>
-            </div>
+            <ChatMessage
+              avatarSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuBByKObr0sB_QRAhxqj4KZ-falzEbX34QAHXO0lwx_XHAXGVe6gB4jA1UaPoi9XA6EfppeBtN1KMoYAi6CftG-cO5LPPY_5RnnX5CX5o7zWtlKKumEKLHRq0Kj04eH-w91Oed7buDJ6LqjSZONLCsq8yG-8XB0eGsqVcO90QPX_BjRxk298529xxP_vMn5IGh0xv3B6TcmCM2Gz3XB8w0vM_sSf6gkA3DtVFH6vdT60H3O10OEfYiub-WTOvYzsciaRDFbgnW8CCAY"
+              message="Hi there! Thanks for the trade. I'm online and ready to release the sXAU as soon as the transfer hits my account. 🚀"
+              timestamp="10:25 AM"
+            />
 
-            {/* Buyer Message (User) */}
-            <div className="flex flex-row-reverse gap-3 max-w-[85%] ml-auto text-right">
-              <div className="space-y-1">
-                <div className="bg-primary p-4 rounded-2xl rounded-tr-none text-on-primary-container">
-                  <p className="text-sm leading-relaxed font-medium">Just initiated the SEPA transfer from my NeoBank account. Should be there in a few minutes!</p>
-                </div>
-                <span className="text-[10px] text-on-surface-variant font-medium">10:26 AM</span>
-              </div>
-            </div>
+            <ChatMessage
+              isCurrentUser={true}
+              message="Just initiated the SEPA transfer from my NeoBank account. Should be there in a few minutes!"
+              timestamp="10:26 AM"
+            />
 
             {/* System Alert */}
             <div className="bg-secondary/5 border border-secondary/10 p-4 rounded-lg flex gap-3">
@@ -197,18 +154,11 @@ export default function BuyerTrade() {
               <p className="text-xs text-on-surface-variant">For your safety, never share your private keys or agree to trade outside of the Aureum escrow system.</p>
             </div>
 
-            {/* Seller Message */}
-            <div className="flex gap-3 max-w-[85%]">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
-                <Image width={32} height={32} alt="Seller" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKE4bapKY5NmHJRlYLi6ND80Modd9HPYh6OLySbsXtgnj2yJjsLx_eehdR8cxsVvEAggJMKb99WigdBPKBTC_Fgo4xB2SRT94Eg75GyUgG4_S_LsN55Mu0ebUQcFGYIvsVqJ4glZECrLCvb7iA_blXZKXjTGa3AVyQj6PXjO12_OAbkeNBLwivjE-4JMJVxS8mIMXZaVapETRGTmT73VXNiY_SAXIXZU0S31x_fW8RHYX96wqd8K5OvjnxKwXGuR_JKRcnm9sp-Cg" />
-              </div>
-              <div className="space-y-1">
-                <div className="bg-surface-container-highest p-4 rounded-2xl rounded-tl-none">
-                  <p className="text-sm leading-relaxed">Perfect. Please don&apos;t forget to attach a screenshot of the receipt if possible, helps speed things up!</p>
-                </div>
-                <span className="text-[10px] text-on-surface-variant font-medium">10:28 AM</span>
-              </div>
-            </div>
+            <ChatMessage
+              avatarSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuDKE4bapKY5NmHJRlYLi6ND80Modd9HPYh6OLySbsXtgnj2yJjsLx_eehdR8cxsVvEAggJMKb99WigdBPKBTC_Fgo4xB2SRT94Eg75GyUgG4_S_LsN55Mu0ebUQcFGYIvsVqJ4glZECrLCvb7iA_blXZKXjTGa3AVyQj6PXjO12_OAbkeNBLwivjE-4JMJVxS8mIMXZaVapETRGTmT73VXNiY_SAXIXZU0S31x_fW8RHYX96wqd8K5OvjnxKwXGuR_JKRcnm9sp-Cg"
+              message="Perfect. Please don't forget to attach a screenshot of the receipt if possible, helps speed things up!"
+              timestamp="10:28 AM"
+            />
           </div>
 
           {/* Chat Input */}
@@ -226,41 +176,7 @@ export default function BuyerTrade() {
         </div>
       </main>
 
-      {/* Side Navigation Shell (Desktop) */}
-      <aside className="hidden md:flex h-screen w-20 fixed left-0 top-0 pt-24 bg-[#121319] flex-col items-center gap-8 border-r border-[#f7f5fd]/5">
-        <Link href="/" className="w-12 h-12 flex items-center justify-center text-[#f7f5fd]/50 hover:bg-[#181920] hover:text-secondary transition-all rounded-xl">
-          <Grid className="w-6 h-6" />
-        </Link>
-        <Link href="/trade/buyer" className="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-xl border-l-4 border-primary">
-          <ShoppingCart className="w-6 h-6" />
-        </Link>
-        <button className="w-12 h-12 flex items-center justify-center text-[#f7f5fd]/50 hover:bg-[#181920] hover:text-secondary transition-all rounded-xl">
-          <Database className="w-6 h-6" />
-        </button>
-        <button className="w-12 h-12 flex items-center justify-center text-[#f7f5fd]/50 hover:bg-[#181920] hover:text-secondary transition-all rounded-xl mt-auto mb-8">
-          <HelpCircle className="w-6 h-6" />
-        </button>
-      </aside>
-
-      {/* Bottom Navigation (Mobile) */}
-      <div className="md:hidden fixed bottom-0 w-full h-16 bg-[#0d0e13]/90 backdrop-blur-xl border-t border-outline-variant/10 flex justify-around items-center px-4 z-50">
-        <Link href="/" className="flex flex-col items-center gap-1 text-on-surface-variant">
-          <Grid className="w-5 h-5" />
-          <span className="text-[10px] font-bold">Home</span>
-        </Link>
-        <Link href="/trade/buyer" className="flex flex-col items-center gap-1 text-primary">
-          <ShoppingCart className="w-5 h-5 fill-primary/20" />
-          <span className="text-[10px] font-bold">Trades</span>
-        </Link>
-        <button className="flex flex-col items-center gap-1 text-on-surface-variant">
-          <MessageSquare className="w-5 h-5" />
-          <span className="text-[10px] font-bold">Chat</span>
-        </button>
-        <button className="flex flex-col items-center gap-1 text-on-surface-variant">
-          <User className="w-5 h-5" />
-          <span className="text-[10px] font-bold">Profile</span>
-        </button>
-      </div>
+      <MobileNavBar items={mobileNavItems} />
     </div>
   );
 }
