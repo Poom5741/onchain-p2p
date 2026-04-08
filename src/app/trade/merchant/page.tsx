@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import {
   Bell,
@@ -151,13 +153,13 @@ export default function MerchantTrade() {
 
               {/* Action Column */}
               <div className="space-y-4">
-                <button className="w-full h-16 bg-gradient-to-r from-primary to-primary-dim text-on-primary-container font-headline font-bold rounded-full shadow-lg hover:shadow-primary/20 transition-all active:scale-95 flex items-center justify-center gap-2">
+                <button className="w-full h-16 bg-gradient-to-r from-primary to-primary-dim text-on-primary-container font-headline font-bold rounded-full shadow-lg hover:shadow-primary/20 transition-all active:scale-95 flex items-center justify-center gap-2" onClick={() => alert("Crypto Released!")}>
                   <LockOpen className="w-5 h-5 fill-on-primary-container text-primary-dim" />
                   Release Crypto
                 </button>
-                <button className="w-full py-4 bg-surface-container-highest text-secondary font-bold rounded-full hover:bg-surface-container-high transition-all border border-secondary/10">
+                <Link href="/admin/dispute" className="w-full py-4 bg-surface-container-highest text-secondary font-bold rounded-full hover:bg-surface-container-high transition-all border border-secondary/10 inline-block text-center">
                   Appeal Trade
-                </button>
+                </Link>
               </div>
             </div>
 
