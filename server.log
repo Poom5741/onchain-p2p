@@ -1,19 +1,8 @@
 
-> myapp@0.1.0 dev
-> next dev
+> myapp@0.1.0 start
+> next start
 
-▲ Next.js 16.2.2 (Turbopack)
+▲ Next.js 16.2.2
 - Local:         http://localhost:3000
 - Network:       http://192.168.0.2:3000
-✓ Ready in 555ms
-
-⚠ Your project has `@next/font` installed as a dependency, please use the built-in `next/font` instead. The `@next/font` package will be removed in Next.js 14. You can migrate by running `npx --yes @next/codemod@latest built-in-next-font .`. Read more: https://nextjs.org/docs/messages/built-in-next-font
-○ Compiling / ...
- GET / 200 in 7.4s (next.js: 6.1s, application-code: 1217ms)
- GET /admin/dispute 200 in 1246ms (next.js: 614ms, application-code: 632ms)
- GET /trade/merchant 200 in 1202ms (next.js: 868ms, application-code: 334ms)
-[browser] Image with src "https://lh3.googleusercontent.com/aida-public/AB6AXuBnXA9tstEu3QE_jKazCrKJWXqG9NvxdC0eL5M9oMvUztpPtHQZSy3gLaFG-_llwWr7bTj6D9jIL2VBfhbtswej_Q1F2lBRQB7a1KE-mq0B7yHvJIIcwp3be5PtCsobvuMEUiEkwCo5Jd6SADmZc3yLsrh29cMK1JJ4oHJs5gln2_qVpsfqaQouBFeFLwB1gmZT21YlFatOesOqc2IdvmiYtGyawjm04T9SOJDY9bl6wHXhMqLIYLsNQN_zI5WqX35vsderBjnieow" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[browser] Image with src "https://lh3.googleusercontent.com/aida-public/AB6AXuDYq243dfPul0bQuYTFEqs9DumHwUxXTF2jzPPbwxoeW1D8kO2I90WDLYwX99KoATncKGUGHEbWxVcCyv0yAaIXcqZkXgCmuokVmmS8GDaHEbguJb4BD4qYFitHYJHasYGsQlxjx5jkM6QpgbjCJV6B9Qc8p94ZDAOqFcjnRE6SURSTdvbkHBn5r6nEqg3r4RPO8VWoKcOyfU3S6AjZzfWopvjnbJkFPrFKnghc-aqp8hBz-kOQwwjR2Ci56bLTtC2lZf8SpIUAkiM" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
- GET /trade/buyer 200 in 1617ms (next.js: 1235ms, application-code: 382ms)
+✓ Ready in 188ms
