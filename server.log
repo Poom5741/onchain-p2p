@@ -1,0 +1,19 @@
+
+> aureum@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+✓ Ready in 577ms
+
+○ Compiling / ...
+ GET / 200 in 5.7s (next.js: 5.0s, application-code: 740ms)
+ GET /merchant 200 in 903ms (next.js: 559ms, application-code: 344ms)
+ GET /marketplace 200 in 963ms (next.js: 529ms, application-code: 434ms)
+ GET /admin/dispute 200 in 971ms (next.js: 522ms, application-code: 449ms)
+ GET /merchant/new-ad 200 in 784ms (next.js: 560ms, application-code: 224ms)
+ GET /trade/seller 200 in 807ms (next.js: 536ms, application-code: 271ms)
+ GET /settings/security 200 in 864ms (next.js: 496ms, application-code: 368ms)
+ GET /trade/buyer 200 in 834ms (next.js: 553ms, application-code: 281ms)
+ GET /inventory 200 in 1045ms (next.js: 541ms, application-code: 503ms)
