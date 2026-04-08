@@ -1,84 +1,36 @@
-import Image from "next/image";
-import { Search, Bell, Settings, ChevronDown, SlidersHorizontal, CreditCard, Star, ShieldCheck, Zap, ArrowDownUp, Shield, Sparkles } from "lucide-react";
-import Link from "next/link";
+import { Search, Settings, ChevronDown, SlidersHorizontal, CreditCard, ShieldCheck, Zap, ArrowDownUp, Shield } from "lucide-react";
+import TopNavBar from "@/components/layout/TopNavBar";
+import SideNavBar from "@/components/layout/SideNavBar";
+import MerchantCard from "@/components/cards/MerchantCard";
+import OfferCard from "@/components/cards/OfferCard";
 
 export default function Home() {
+  const sideNavItems = [
+    { href: "/merchant", label: "Merchant Dashboard", icon: <Settings className="w-5 h-5" /> },
+    { href: "/trade/buyer", label: "Buyer Portal", icon: <Search className="w-5 h-5" /> },
+    { href: "#", label: "Asset Inventory", icon: <Settings className="w-5 h-5" />, isActive: true },
+    { href: "#", label: "Trade History", icon: <Settings className="w-5 h-5" /> },
+  ];
+
+  const bottomNavItems = [
+    { href: "#", label: "Support", icon: <Settings className="w-5 h-5" /> },
+    { href: "#", label: "Sign Out", icon: <Settings className="w-5 h-5" /> },
+  ];
+
   return (
     <div className="min-h-screen bg-background text-on-surface">
-      {/* TopNavBar */}
-      <nav className="fixed top-0 w-full z-50 bg-[#0d0e13]/80 backdrop-blur-xl shadow-[0_20px_40px_rgba(197,154,255,0.08)] flex justify-between items-center px-8 h-20">
-        <div className="flex items-center gap-8">
-          <span className="text-2xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#c59aff] to-[#9547f7] font-headline">Aureum</span>
-          <div className="hidden md:flex items-center gap-6 font-headline font-bold text-sm tracking-tight">
-            <Link className="text-[#c59aff] border-b-2 border-[#c59aff] pb-1" href="/">Marketplace</Link>
-            <Link className="text-[#f7f5fd]/60 hover:text-[#f7f5fd] transition-colors" href="/trade/buyer">Trades</Link>
-            <a className="text-[#f7f5fd]/60 hover:text-[#f7f5fd] transition-colors" href="#">Wallet</a>
-            <a className="text-[#f7f5fd]/60 hover:text-[#f7f5fd] transition-colors" href="#">Help</a>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <div className="hidden lg:flex bg-surface-container-high rounded-full px-4 py-2 items-center gap-2">
-            <Search className="text-on-surface-variant w-4 h-4" />
-            <input className="bg-transparent border-none focus:ring-0 text-sm w-48 text-on-surface outline-none" placeholder="Search markets..." type="text" />
-          </div>
-          <button className="p-2 text-on-surface-variant hover:bg-[#181920] rounded-full transition-all active:scale-95">
-            <Bell className="w-5 h-5" />
-          </button>
-          <button className="p-2 text-on-surface-variant hover:bg-[#181920] rounded-full transition-all active:scale-95">
-            <Settings className="w-5 h-5" />
-          </button>
-          <button className="bg-gradient-to-r from-[#c59aff] to-[#9547f7] text-on-primary-container px-6 py-2.5 rounded-full font-headline font-bold text-sm hover:opacity-90 transition-all active:scale-95">
-            Connect Wallet
-          </button>
-        </div>
-      </nav>
+      <TopNavBar activePath="marketplace" showSearch />
 
-      {/* SideNavBar (Desktop) */}
-      <aside className="hidden lg:flex h-screen w-64 fixed left-0 top-0 pt-24 bg-[#121319] flex-col border-r border-[#f7f5fd]/5 z-40">
-        <div className="flex items-center gap-3 px-6 mb-10">
-          <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center">
-            <Sparkles className="text-primary w-5 h-5" />
-          </div>
-          <div>
-            <p className="text-lg font-bold text-[#c59aff] font-headline">Aureum P2P</p>
-            <p className="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">The Neon Alchemist</p>
-          </div>
-        </div>
-        <nav className="flex flex-col flex-1 font-body font-medium text-sm">
-          <a className="flex items-center gap-3 text-[#f7f5fd]/50 py-3 px-6 hover:bg-[#181920] hover:text-[#00f2ea] transition-all duration-300 ease-in-out" href="/trade/merchant">
-            <Settings className="w-5 h-5" />
-            <span>Merchant Dashboard</span>
-          </a>
-          <a className="flex items-center gap-3 text-[#f7f5fd]/50 py-3 px-6 hover:bg-[#181920] hover:text-[#00f2ea] transition-all duration-300 ease-in-out" href="/trade/buyer">
-            <Search className="w-5 h-5" />
-            <span>Buyer Portal</span>
-          </a>
-          <a className="flex items-center gap-3 bg-[#c59aff]/10 text-[#c59aff] rounded-r-full py-3 px-6 border-l-4 border-[#c59aff] transition-all duration-300 ease-in-out" href="#">
-            <Settings className="w-5 h-5" />
-            <span>Asset Inventory</span>
-          </a>
-          <a className="flex items-center gap-3 text-[#f7f5fd]/50 py-3 px-6 hover:bg-[#181920] hover:text-[#00f2ea] transition-all duration-300 ease-in-out" href="#">
-            <Settings className="w-5 h-5" />
-            <span>Trade History</span>
-          </a>
-          <div className="mt-8 px-6">
-            <button className="w-full py-3 bg-secondary/10 text-secondary border border-secondary/20 rounded-xl font-bold font-headline flex items-center justify-center gap-2 hover:bg-secondary/20 transition-all">
-              <span className="text-lg">+</span>
-              New Trade
-            </button>
-          </div>
-          <div className="mt-auto pb-8 space-y-1">
-            <a className="flex items-center gap-3 text-[#f7f5fd]/50 py-3 px-6 hover:bg-[#181920] transition-all" href="#">
-              <Settings className="w-5 h-5" />
-              <span>Support</span>
-            </a>
-            <a className="flex items-center gap-3 text-[#f7f5fd]/50 py-3 px-6 hover:bg-[#181920] transition-all" href="#">
-              <Settings className="w-5 h-5" />
-              <span>Sign Out</span>
-            </a>
-          </div>
-        </nav>
-      </aside>
+      <SideNavBar
+        items={sideNavItems}
+        bottomItems={bottomNavItems}
+        actionButton={
+          <button className="w-full py-3 bg-secondary/10 text-secondary border border-secondary/20 rounded-xl font-bold font-headline flex items-center justify-center gap-2 hover:bg-secondary/20 transition-all">
+            <span className="text-lg">+</span>
+            New Trade
+          </button>
+        }
+      />
 
       <main className="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto lg:pl-72">
         {/* Hero Section */}
@@ -135,200 +87,99 @@ export default function Home() {
           <div className="lg:col-span-3 space-y-6">
             <h3 className="font-headline font-extrabold text-xl px-2">Top Merchants</h3>
 
-            {/* Merchant Card 1 */}
-            <div className="bg-surface-container p-6 rounded-xl space-y-4 hover:translate-y-[-4px] transition-all duration-300">
-              <div className="flex items-center gap-3">
-                <Image width={48} height={48} alt="Nova_Trade" className="rounded-full bg-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvN2wPHLr4NEGFHPvDFMsyXt5UiOLZDsAJm5PnO9RWfHml2OFtNUgerhd9YSy8dzLDpesAkWNKbKY9lDCjVv9LJIf06q1MzyNM3ImK33LW99hyo5-zlJpCL6znCTgTec2_QMgB0-etttM8RfxrH_XayxSbBXCztbmrP1dBPzh8UwhLzA1yvo5rw4xgs1V-1GGpcCiQRvxzzzlpIkBddLoWhpuNBCBVcSVR553g6JNAC0RX3gZcaI2N5mZp6UzQ1XdKPtfzj9yAVP0" />
-                <div>
-                  <p className="font-bold font-headline">Nova_Trade</p>
-                  <div className="flex items-center gap-1">
-                    <Star className="text-secondary w-3 h-3 fill-secondary" />
-                    <span className="text-xs font-bold text-secondary">99.8%</span>
-                  </div>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-2">
-                <div className="bg-surface-container-low p-3 rounded-lg text-center">
-                  <p className="text-[10px] text-on-surface-variant font-bold uppercase">TRADES</p>
-                  <p className="text-sm font-bold">12,400+</p>
-                </div>
-                <div className="bg-surface-container-low p-3 rounded-lg text-center">
-                  <p className="text-[10px] text-on-surface-variant font-bold uppercase">SPEED</p>
-                  <p className="text-sm font-bold">2m avg</p>
-                </div>
-              </div>
-              <button className="w-full py-2 bg-surface-container-highest rounded-full text-xs font-bold hover:bg-primary/20 hover:text-primary transition-all">View Profile</button>
-            </div>
+            <MerchantCard
+              name="Nova_Trade"
+              avatarSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuAvN2wPHLr4NEGFHPvDFMsyXt5UiOLZDsAJm5PnO9RWfHml2OFtNUgerhd9YSy8dzLDpesAkWNKbKY9lDCjVv9LJIf06q1MzyNM3ImK33LW99hyo5-zlJpCL6znCTgTec2_QMgB0-etttM8RfxrH_XayxSbBXCztbmrP1dBPzh8UwhLzA1yvo5rw4xgs1V-1GGpcCiQRvxzzzlpIkBddLoWhpuNBCBVcSVR553g6JNAC0RX3gZcaI2N5mZp6UzQ1XdKPtfzj9yAVP0"
+              avatarBgClass="bg-primary/20"
+              rating={99.8}
+              tradesCount="12,400+"
+              speed="2m avg"
+            />
 
-            {/* Merchant Card 2 */}
-            <div className="bg-surface-container p-6 rounded-xl space-y-4 hover:translate-y-[-4px] transition-all duration-300">
-              <div className="flex items-center gap-3">
-                <Image width={48} height={48} alt="SilverFox_P2P" className="rounded-full bg-secondary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaHVGrlaC99VyNIHzH-PYG0_lmOVa4jznxQ5rsyPcWpKQUA6UoW9Uj_p8mkFMgKqkB7DAIJYl8gxwuT6YQxjA5eHn33w8NZxasjOm6M4ZiyuXhGaGU3bkSVBuhUxf1-kI6hQgcCMQbnO9XKUZdq5xAfsbxOb6wtTsEji3JTl_qu0mVzXCv6eSmsxF4t9fs3WBQMODMQishiPg7FgB0b55ubw6HtdrMFGldL8SrO8sY4hgG-uRwpqtexXEv0BzXN_RzYI8m40i6vZw" />
-                <div>
-                  <p className="font-bold font-headline">SilverFox_P2P</p>
-                  <div className="flex items-center gap-1">
-                    <Star className="text-secondary w-3 h-3 fill-secondary" />
-                    <span className="text-xs font-bold text-secondary">100%</span>
-                  </div>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-2">
-                <div className="bg-surface-container-low p-3 rounded-lg text-center">
-                  <p className="text-[10px] text-on-surface-variant font-bold uppercase">TRADES</p>
-                  <p className="text-sm font-bold">5,201</p>
-                </div>
-                <div className="bg-surface-container-low p-3 rounded-lg text-center">
-                  <p className="text-[10px] text-on-surface-variant font-bold uppercase">SPEED</p>
-                  <p className="text-sm font-bold">5m avg</p>
-                </div>
-              </div>
-              <button className="w-full py-2 bg-surface-container-highest rounded-full text-xs font-bold hover:bg-primary/20 hover:text-primary transition-all">View Profile</button>
-            </div>
+            <MerchantCard
+              name="SilverFox_P2P"
+              avatarSrc="https://lh3.googleusercontent.com/aida-public/AB6AXuBaHVGrlaC99VyNIHzH-PYG0_lmOVa4jznxQ5rsyPcWpKQUA6UoW9Uj_p8mkFMgKqkB7DAIJYl8gxwuT6YQxjA5eHn33w8NZxasjOm6M4ZiyuXhGaGU3bkSVBuhUxf1-kI6hQgcCMQbnO9XKUZdq5xAfsbxOb6wtTsEji3JTl_qu0mVzXCv6eSmsxF4t9fs3WBQMODMQishiPg7FgB0b55ubw6HtdrMFGldL8SrO8sY4hgG-uRwpqtexXEv0BzXN_RzYI8m40i6vZw"
+              avatarBgClass="bg-secondary/20"
+              rating={100}
+              tradesCount="5,201"
+              speed="5m avg"
+            />
           </div>
 
           {/* Main Offers List / Right Grid */}
           <div className="lg:col-span-9 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Offer Card 1: Gold Buy */}
-            <div className="glass-card rounded-xl p-8 flex flex-col border-l-4 border-primary group hover:bg-[#1e1f26] transition-all duration-300">
-              <div className="flex justify-between items-start mb-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#bf953f] to-[#fcf6ba] flex items-center justify-center">
-                    <CreditCard className="text-on-primary-fixed w-8 h-8" />
-                  </div>
-                  <div>
-                    <h4 className="metallic-gold font-headline font-extrabold text-2xl tracking-tighter">sXAU</h4>
-                    <span className="text-xs font-bold text-on-surface-variant">Synthetic Gold</span>
-                  </div>
-                </div>
-                <div className="bg-secondary/10 px-3 py-1 rounded-full">
-                  <span className="text-secondary text-xs font-bold font-headline uppercase tracking-tighter">BEST PRICE</span>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4 mb-8">
-                <div className="flex justify-between items-baseline">
-                  <span className="text-on-surface-variant text-sm font-medium">Price per Oz</span>
-                  <span className="text-2xl font-extrabold font-headline">$2,145.20</span>
-                </div>
-                <div className="flex justify-between items-baseline">
-                  <span className="text-on-surface-variant text-sm font-medium">Limits</span>
-                  <span className="text-sm font-bold">500.00 - 15,000.00 USD</span>
-                </div>
-              </div>
-              <div className="mt-auto pt-6 flex items-center justify-between border-t border-white/5">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="text-secondary w-4 h-4" />
-                  <span className="text-xs font-bold text-on-surface-variant">Instant Settlement</span>
-                </div>
-                <button className="bg-gradient-to-r from-secondary to-secondary-container text-on-secondary px-8 py-3 rounded-full font-headline font-extrabold text-sm group-hover:scale-105 transition-transform">
-                  BUY sXAU
-                </button>
-              </div>
-            </div>
+            <OfferCard
+              asset="sXAU"
+              assetSub="Synthetic Gold"
+              icon={<CreditCard className="text-on-primary-fixed w-8 h-8" />}
+              iconBgClass="bg-gradient-to-br from-[#bf953f] to-[#fcf6ba]"
+              borderColorClass="border-primary"
+              titleColorClass="metallic-gold"
+              badgeLabel="BEST PRICE"
+              badgeContainerClass="bg-secondary/10"
+              badgeTextClass="text-secondary"
+              priceLabel="Price per Oz"
+              priceValue="$2,145.20"
+              limitLabel="Limits"
+              limitValue="500.00 - 15,000.00 USD"
+              footerIcon={<ShieldCheck className="text-secondary w-4 h-4" />}
+              footerText="Instant Settlement"
+              actionText="BUY sXAU"
+              actionClass="bg-gradient-to-r from-secondary to-secondary-container text-on-secondary"
+            />
 
-            {/* Offer Card 2: Silver Sell */}
-            <div className="glass-card rounded-xl p-8 flex flex-col border-l-4 border-secondary group hover:bg-[#1e1f26] transition-all duration-300">
-              <div className="flex justify-between items-start mb-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#e8e8e8] to-[#70706f] flex items-center justify-center">
-                    <ArrowDownUp className="text-on-primary-fixed w-8 h-8" />
-                  </div>
-                  <div>
-                    <h4 className="metallic-silver font-headline font-extrabold text-2xl tracking-tighter">sXAG</h4>
-                    <span className="text-xs font-bold text-on-surface-variant">Synthetic Silver</span>
-                  </div>
-                </div>
-                <div className="bg-primary/10 px-3 py-1 rounded-full">
-                  <span className="text-primary text-xs font-bold font-headline uppercase tracking-tighter">NEW OFFER</span>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4 mb-8">
-                <div className="flex justify-between items-baseline">
-                  <span className="text-on-surface-variant text-sm font-medium">Price per Oz</span>
-                  <span className="text-2xl font-extrabold font-headline">$24.88</span>
-                </div>
-                <div className="flex justify-between items-baseline">
-                  <span className="text-on-surface-variant text-sm font-medium">Limits</span>
-                  <span className="text-sm font-bold">100.00 - 2,500.00 EUR</span>
-                </div>
-              </div>
-              <div className="mt-auto pt-6 flex items-center justify-between border-t border-white/5">
-                <div className="flex items-center gap-2">
-                  <Zap className="text-primary w-4 h-4" />
-                  <span className="text-xs font-bold text-on-surface-variant">P2P Escrow</span>
-                </div>
-                <button className="bg-gradient-to-r from-primary to-primary-dim text-on-primary-container px-8 py-3 rounded-full font-headline font-extrabold text-sm group-hover:scale-105 transition-transform">
-                  SELL sXAG
-                </button>
-              </div>
-            </div>
+            <OfferCard
+              asset="sXAG"
+              assetSub="Synthetic Silver"
+              icon={<ArrowDownUp className="text-on-primary-fixed w-8 h-8" />}
+              iconBgClass="bg-gradient-to-br from-[#e8e8e8] to-[#70706f]"
+              borderColorClass="border-secondary"
+              titleColorClass="metallic-silver"
+              badgeLabel="NEW OFFER"
+              badgeContainerClass="bg-primary/10"
+              badgeTextClass="text-primary"
+              priceLabel="Price per Oz"
+              priceValue="$24.88"
+              limitLabel="Limits"
+              limitValue="100.00 - 2,500.00 EUR"
+              footerIcon={<Zap className="text-primary w-4 h-4" />}
+              footerText="P2P Escrow"
+              actionText="SELL sXAG"
+              actionClass="bg-gradient-to-r from-primary to-primary-dim text-on-primary-container"
+            />
 
-            {/* Offer Card 3: Fiat Exchange */}
-            <div className="glass-card rounded-xl p-8 flex flex-col border-l-4 border-on-surface-variant group hover:bg-[#1e1f26] transition-all duration-300">
-              <div className="flex justify-between items-start mb-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full bg-surface-container-highest flex items-center justify-center">
-                    <CreditCard className="text-on-surface w-8 h-8" />
-                  </div>
-                  <div>
-                    <h4 className="text-on-surface font-headline font-extrabold text-2xl tracking-tighter">USD / EUR</h4>
-                    <span className="text-xs font-bold text-on-surface-variant">Fiat Bridge</span>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4 mb-8">
-                <div className="flex justify-between items-baseline">
-                  <span className="text-on-surface-variant text-sm font-medium">Exchange Rate</span>
-                  <span className="text-2xl font-extrabold font-headline">0.925</span>
-                </div>
-                <div className="flex justify-between items-baseline">
-                  <span className="text-on-surface-variant text-sm font-medium">Available</span>
-                  <span className="text-sm font-bold">45,000.00 USD</span>
-                </div>
-              </div>
-              <div className="mt-auto pt-6 flex items-center justify-between border-t border-white/5">
-                <div className="flex items-center gap-2">
-                  <Shield className="text-on-surface-variant w-4 h-4" />
-                  <span className="text-xs font-bold text-on-surface-variant">SEPA / Wire</span>
-                </div>
-                <button className="bg-surface-container-highest text-on-surface px-8 py-3 rounded-full font-headline font-extrabold text-sm group-hover:scale-105 transition-transform">
-                  EXCHANGE
-                </button>
-              </div>
-            </div>
+            <OfferCard
+              asset="USD / EUR"
+              assetSub="Fiat Bridge"
+              icon={<CreditCard className="text-on-surface w-8 h-8" />}
+              iconBgClass="bg-surface-container-highest"
+              borderColorClass="border-on-surface-variant"
+              priceLabel="Exchange Rate"
+              priceValue="0.925"
+              limitLabel="Available"
+              limitValue="45,000.00 USD"
+              footerIcon={<Shield className="text-on-surface-variant w-4 h-4" />}
+              footerText="SEPA / Wire"
+              actionText="EXCHANGE"
+              actionClass="bg-surface-container-highest text-on-surface"
+            />
 
-            {/* Offer Card 4: Gold Buy (Alternative) */}
-            <div className="glass-card rounded-xl p-8 flex flex-col border-l-4 border-primary group hover:bg-[#1e1f26] transition-all duration-300">
-              <div className="flex justify-between items-start mb-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#bf953f] to-[#fcf6ba] flex items-center justify-center">
-                    <CreditCard className="text-on-primary-fixed w-8 h-8" />
-                  </div>
-                  <div>
-                    <h4 className="metallic-gold font-headline font-extrabold text-2xl tracking-tighter">sXAU</h4>
-                    <span className="text-xs font-bold text-on-surface-variant">Synthetic Gold</span>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4 mb-8">
-                <div className="flex justify-between items-baseline">
-                  <span className="text-on-surface-variant text-sm font-medium">Price per Oz</span>
-                  <span className="text-2xl font-extrabold font-headline">$2,148.50</span>
-                </div>
-                <div className="flex justify-between items-baseline">
-                  <span className="text-on-surface-variant text-sm font-medium">Limits</span>
-                  <span className="text-sm font-bold">1,000.00 - 50,000.00 USD</span>
-                </div>
-              </div>
-              <div className="mt-auto pt-6 flex items-center justify-between border-t border-white/5">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="text-secondary w-4 h-4" />
-                  <span className="text-xs font-bold text-on-surface-variant">Insured Trade</span>
-                </div>
-                <button className="bg-gradient-to-r from-secondary to-secondary-container text-on-secondary px-8 py-3 rounded-full font-headline font-extrabold text-sm group-hover:scale-105 transition-transform">
-                  BUY sXAU
-                </button>
-              </div>
-            </div>
+            <OfferCard
+              asset="sXAU"
+              assetSub="Synthetic Gold"
+              icon={<CreditCard className="text-on-primary-fixed w-8 h-8" />}
+              iconBgClass="bg-gradient-to-br from-[#bf953f] to-[#fcf6ba]"
+              borderColorClass="border-primary"
+              titleColorClass="metallic-gold"
+              priceLabel="Price per Oz"
+              priceValue="$2,148.50"
+              limitLabel="Limits"
+              limitValue="1,000.00 - 50,000.00 USD"
+              footerIcon={<ShieldCheck className="text-secondary w-4 h-4" />}
+              footerText="Insured Trade"
+              actionText="BUY sXAU"
+              actionClass="bg-gradient-to-r from-secondary to-secondary-container text-on-secondary"
+            />
           </div>
         </div>
 
